@@ -27,7 +27,7 @@ def streamData():
     producer.produce('temp_recorded', value=res.encode('utf-8'))
     producer.flush()
 
-def start_consumer(bootstrap_server = 'localhost:9092', group_id ='temp_comsumer'):
+def start_consumer(bootstrap_server = 'localhost:9092', group_id = None):
     config = {
         'bootstrap.servers': bootstrap_server, #for now this is local connection, later once we containerize the code we switch to 9093
         'group.id': group_id,
@@ -54,9 +54,9 @@ def consumeData(consumer):
     
 
 
-consumer = start_consumer()
+temp_consumer = start_consumer(group_id = 'temp_consumer')
 
 while True:
     streamData()
     time.sleep(2)
-    consumeData(consumer)
+    consumeData(temp_consumer)

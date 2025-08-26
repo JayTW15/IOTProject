@@ -12,3 +12,7 @@ Docker for containerization.
 8/20/2025
 This is the day I start this project, my first goal is creating a realistic sensor generator that'll be used throughout this project
 Lets say we are simulating a data center, we want to keep information on the temperatures of the computers (maybe later include the usage % of each server)
+
+
+8/26/25
+I have been working on this project throughout the days and its mainly been setting everything up to work properly, today I am learning how to set up custome flink images with python support using a dockerfile.
