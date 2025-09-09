@@ -21,7 +21,7 @@ def getData():
                     "unit": "fahrenheit"})
     return json.dumps(result, indent=2)
 
-def streamData():
+def start_producer(): #starts the producer, generates data and produces it to kafka
     res = getData()
     producer = Producer({'bootstrap.servers':'localhost:9092'})
     producer.produce('temp_recorded', value=res.encode('utf-8'))
@@ -53,10 +53,11 @@ def consumeData(consumer):
     print(raw_value)
     
 
+if __name__ == '__main__': #every 2 seconds generate mock data for kafka
 
-temp_consumer = start_consumer(group_id = 'temp_consumer')
+    #temp_consumer = start_consumer(group_id = 'temp_consumer')
 
-while True:
-    streamData()
-    time.sleep(2)
-    consumeData(temp_consumer)
+    while True:
+        start_producer()
+        time.sleep(2)
+        #consumeData(temp_consumer)
