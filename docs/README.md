@@ -16,3 +16,13 @@ Lets say we are simulating a data center, we want to keep information on the tem
 
 8/26/25
 I have been working on this project throughout the days and its mainly been setting everything up to work properly, today I am learning how to set up custome flink images with python support using a dockerfile.
+
+9/8/25
+Last time i worked on the project I finally got everything up and running, now its time to get the basic logic down for flink threshold anomoly detection. The plan is to
+1. in sensor_generator create a producer
+2. generate data
+3. connect data to the producer
+4. send that data to kafka
+
+9/9/25
+I got everything working now, took some tinkering but now everything is sending and is being received smoothly. Locally im calling sensor_generator to generate mock data and my temperature_processor is being ran through the docker container    
